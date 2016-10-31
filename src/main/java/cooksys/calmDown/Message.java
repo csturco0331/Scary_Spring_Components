@@ -21,17 +21,13 @@ public class Message implements Printable, ConditionalThing {
 		actionz.doThings(this);
 	}
 
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
 	@Override
 	public String getMessage() {
 		return msg;
+	}
+	
+	public void setMessage(String msg) {
+		this.msg = msg;
 	}
 	
 	@Override

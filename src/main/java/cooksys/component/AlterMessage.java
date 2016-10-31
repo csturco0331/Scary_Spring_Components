@@ -16,7 +16,7 @@ public class AlterMessage implements Printable, ConditionalThing {
 
 	public AlterMessage(HalfBakedIdea actionz, Message msg) {
 		
-		msg.setMsg("ZALTER MUST SPEAK NOW");
+		msg.setMessage("ZALTER MUST SPEAK NOW");
 		this.msg = msg;
 		actionz.doThings(this);
 	}
