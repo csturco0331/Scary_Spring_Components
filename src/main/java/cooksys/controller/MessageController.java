@@ -4,20 +4,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cooksys.calmDown.Message;
+import cooksys.calmDown.HalfBakedIdea;
+import cooksys.component.AlterMessage;
 
 @RestController
 @RequestMapping("message")
 public class MessageController {
 	
-	Message message;
+	AlterMessage message;
+	HalfBakedIdea count;
 	
-	public MessageController(Message msg) {
+	public MessageController(AlterMessage msg, HalfBakedIdea count) {
 		message = msg;
+		this.count = count;
 	}
 	
 	@GetMapping
-	public Message getMessage() {
+	public AlterMessage getMessage() {
 		return message;
 	}
 	
@@ -26,11 +29,9 @@ public class MessageController {
 		return message.getMessage().length();
 	}
 	
-	/**
-	 * Add a new method here!
-	 * This method will cause postman to respond with 
-	 * the total number of actions taken by the system (see @HalfBakedIdea)
-	 * when a GET request is sent to "http://localhost:8080/message/actions"
-	 */
+	@GetMapping("actions")
+	public int actions() {
+		return count.getCounter();
+	}
 
 }

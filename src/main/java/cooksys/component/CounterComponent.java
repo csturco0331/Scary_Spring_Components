@@ -25,4 +25,8 @@ public class CounterComponent implements ActionExecutor {
 		}
 	}
 	
+	public int getCounter() {
+		return counter;
+	}
+	
 }
