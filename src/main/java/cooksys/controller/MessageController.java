@@ -20,6 +20,11 @@ public class MessageController {
 	public Message getMessage() {
 		return message;
 	}
+	
+	@GetMapping("count")
+	public Integer getCharacterCount() {
+		return message.getMessage().length();
+	}
 		
 
 }
