@@ -13,20 +13,20 @@ public class HalfBakedIdea {
 	
 	private Set<ActionExecutor> actions;
 	LoggerComponent logger;
-	int count = 0;
+	int totalActions;
 
 	public HalfBakedIdea(Set<ActionExecutor> actions, LoggerComponent logger) {
 		this.actions = actions;
 		this.logger = logger;
 	}
-	
-	public int getCounter() {
-		return count;
-	}
 
 	public void doThings(ConditionalThing o) {
 		logger.logIt("I'm taking " + actions.size() + " actions!");
+		totalActions += actions.size();
 		actions.forEach(action -> action.takeAction(o));
-		count += actions.size();
+	}
+	
+	public Integer getTotalActions() {
+		return totalActions;
 	}
 }
