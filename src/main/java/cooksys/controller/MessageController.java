@@ -3,6 +3,7 @@ package cooksys.controller;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,6 +66,16 @@ public class MessageController {
 	@GetMapping("count")
 	public Integer getCharacterCount() {
 		return message.getMessage().length();
+	}
+	
+	@GetMapping("/user/{username}")
+	public String getFirstCharacterOfUserName(@PathVariable String username ) {
+		return username.substring(0, 1);
+	}
+	
+	@PutMapping("/user/{username}")
+	public String putDataToUser(@PathVariable String username, @RequestBody DataTransferObject msg) {
+		return username + " got a message containing " + msg.getValue() + "!";
 	}
 
 	/**
