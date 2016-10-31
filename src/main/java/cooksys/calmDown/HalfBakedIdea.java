@@ -12,11 +12,11 @@ import cooksys.interfaces.ConditionalThing;
 @Component
 public class HalfBakedIdea {
 	
-	private HashSet<ActionExecutor> actions = new HashSet<>();
+	private Set<ActionExecutor> actions;
 	LoggerComponent logger;
 
 	public HalfBakedIdea(Set<ActionExecutor> actions, LoggerComponent logger) {
-		this.actions.addAll(actions);
+		this.actions = actions;
 		this.logger = logger;
 	}
 
@@ -24,5 +24,4 @@ public class HalfBakedIdea {
 		logger.logIt("I'm taking some actions!");
 		actions.forEach(action -> action.takeAction(o));
 	}
-
 }
