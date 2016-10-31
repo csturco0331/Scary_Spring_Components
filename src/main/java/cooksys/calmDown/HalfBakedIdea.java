@@ -21,7 +21,7 @@ public class HalfBakedIdea {
 	}
 
 	public void doThings(ConditionalThing o) {
-		logger.logIt("I'm taking some actions!");
+		logger.logIt("I'm taking " + actions.size() + " actions!");
 		actions.forEach(action -> action.takeAction(o));
 	}
 }
