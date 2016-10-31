@@ -25,6 +25,12 @@ public class MessageController {
 	public Integer getCharacterCount() {
 		return message.getMessage().length();
 	}
-		
+	
+	/**
+	 * Add a new method here!
+	 * This method will cause postman to respond with 
+	 * the total number of actions taken by the system (see @HalfBakedIdea)
+	 * when a GET request is sent to "http://localhost:8080/message/actions"
+	 */
 
 }
