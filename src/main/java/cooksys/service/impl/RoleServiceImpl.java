@@ -4,9 +4,10 @@ import org.springframework.stereotype.Service;
 
 import cooksys.entity.AppRole;
 import cooksys.repository.RoleRepository;
+import cooksys.service.RoleService;
 
 @Service
-public class RoleServiceImpl {
+public class RoleServiceImpl implements RoleService{
 	
 	private RoleRepository roleRepo;
 
@@ -14,6 +15,7 @@ public class RoleServiceImpl {
 		this.roleRepo = roleRepo;
 	}
 	
+	@Override
 	public AppRole getById(long id) {
 		return roleRepo.get(id);
 	}

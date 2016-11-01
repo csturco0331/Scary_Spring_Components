@@ -1,5 +1,9 @@
 package cooksys.controller;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +24,7 @@ public class MessageController {
 
 	Message message;
 	HalfBakedIdea halfBaked;
+	Map<String, List<String>> userMessages = new HashMap<>();
 
 	public MessageController(Message msg, HalfBakedIdea halfBaked) {
 		message = msg;
@@ -69,13 +74,14 @@ public class MessageController {
 	}
 	
 	@GetMapping("/user/{username}")
-	public String getFirstCharacterOfUserName(@PathVariable String username ) {
-		return username.substring(0, 1);
+	public List<String> getDataFromUser(@PathVariable String username ) {
+		return userMessages.remove(username);
 	}
 	
 	@PutMapping("/user/{username}")
-	public String putDataToUser(@PathVariable String username, @RequestBody DataTransferObject msg) {
-		return username + " got a message containing " + msg.getValue() + "!";
+	public void putDataToUser(@PathVariable String username, @RequestBody DataTransferObject msg) {
+		if(userMessages.containsKey(username)) userMessages.get(username).add(msg.getValue());
+		else userMessages.put(username, new LinkedList<String>(Arrays.asList(msg.getValue())));
 	}
 
 	/**
