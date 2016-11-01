@@ -31,4 +31,9 @@ public class RoleServiceImpl implements RoleService {
 		return roleRepo.getByName(name);
 	}
 
+	@Override
+	public long create(AppRole appRole) {
+		return roleRepo.create(appRole);
+	}
+
 }

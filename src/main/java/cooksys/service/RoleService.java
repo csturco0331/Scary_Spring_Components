@@ -12,4 +12,6 @@ public interface RoleService {
 
 	public AppRole getByName(String name);
 
+	public long create(AppRole appRole);
+
 }
