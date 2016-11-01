@@ -1,5 +1,7 @@
 package cooksys.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +32,15 @@ public class CuttlefernController {
 	@GetMapping("person/{id}")
 	public Person getPerson(@PathVariable long id) {
 		return personService.getById(id);
+	}
+
+	@GetMapping("role")
+	public List<AppRole> getAllAppRoles() {
+		return roleService.getAll();
+	}
+	
+	@GetMapping("role/title/{name}")
+	public AppRole getAppRoleByName(@PathVariable String name) {
+		return roleService.getByName(name);
 	}
 }

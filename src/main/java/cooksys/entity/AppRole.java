@@ -3,7 +3,7 @@ package cooksys.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "app_role")
+@Table
 public class AppRole {
 
     @Id
@@ -11,7 +11,7 @@ public class AppRole {
     private long id;
 
     @Column(name = "role")
-    private String role;
+    private String roleTitle;
 
     public long getId() {
         return id;
@@ -22,10 +22,10 @@ public class AppRole {
     }
 
     public String getRole() {
-        return role;
+        return roleTitle;
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.roleTitle = role;
     }
 }

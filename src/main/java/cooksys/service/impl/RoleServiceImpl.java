@@ -1,5 +1,7 @@
 package cooksys.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import cooksys.entity.AppRole;
@@ -18,6 +20,16 @@ public class RoleServiceImpl implements RoleService{
 	@Override
 	public AppRole getById(long id) {
 		return roleRepo.get(id);
+	}
+
+	@Override
+	public List<AppRole> getAll() {
+		return roleRepo.getAll();
+	}
+
+	@Override
+	public AppRole getByName(String name) {
+		return roleRepo.getByName(name);
 	}
 
 }
