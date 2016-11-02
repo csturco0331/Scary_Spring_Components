@@ -45,8 +45,16 @@ public class RoleRepositoryImpl implements RoleRepository {
 	@Transactional
 	public long create(AppRole appRole) {
 		logger.logIt("Current appRole ID: " + appRole.getId());
+		
+		// Persist = Mutable
+		// Persist modifies the entity that was passed to it to match what is in the database
 		entityManager.persist(appRole);
 		return appRole.getId();
+		
+		// Merge = Immutable
+		// Returns a new object that matches what is in the database
+		// AppRole newEntity = entityManager.merge(appRole);
+		// return newEntity.getId();
 	}
 
 }

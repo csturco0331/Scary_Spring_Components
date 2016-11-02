@@ -16,15 +16,15 @@ public class AppGroup {
     @Column(name = "Name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "Owner")
+    @ManyToOne // MANY AppUsers can have ONE AppGroup
+    @JoinColumn(name = "Owner") //This will be a numeric column in the database named "owner_id" that is used by the ORM tool to find (using a join statement) which AppUser object belongs to this AppGroup object
     @JsonIgnore
     private AppUser owner;
 
     @ManyToMany
-    @JoinTable(name = "GroupUsers",
-    	joinColumns = @JoinColumn(name = "group_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JoinTable(name = "GroupUsers", //The name of the join table in the database (the table will be called group_users)
+    	joinColumns = @JoinColumn(name = "group_id"), //The foreign key column in the join table that THIS ENTITY (AppGroup) will be joined on
+    	inverseJoinColumns = @JoinColumn(name = "user_id")) // the foreign key column in the join table that the REFERENCED ENTITY (AppUser) will be joined on
     @JsonIgnore
     private List<AppUser> members;
 

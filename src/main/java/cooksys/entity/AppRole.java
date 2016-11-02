@@ -23,7 +23,7 @@ public class AppRole {
     @Column(name = "role")
     private String roleTitle;
     
-    @OneToMany(mappedBy = "role")
+    @OneToMany(mappedBy = "role") // ONE AppRole can have MANY AppUsers
 	private List<AppUser> users;
 
 
