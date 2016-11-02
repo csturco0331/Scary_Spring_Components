@@ -31,12 +31,12 @@ public class AppUser {
 	@Column(name = "State")
 	private String state;
 
-	@ManyToOne
-	@JoinColumn
+	@ManyToOne // MANY AppUsers can have ONE AppRole
+	@JoinColumn //This will be a numeric column in the "app_user" table of the database named "role_id" that is used by the ORM tool to find (using a join statement) which AppRole object belongs to this AppUser object
 	@JsonIgnore
 	private AppRole role;
 	
-	@ManyToMany(mappedBy = "members")
+	@ManyToMany(mappedBy = "members") //Tells this Entity to look at the "members" field of the AppGroup Entity for a @JoinTable annotation
 	private List<AppGroup> groups;
 
 	public AppUser() {
