@@ -23,7 +23,7 @@ public class PleaseWorkController {
 		return techService.getById(id);
 	}
 	
-	@GetMapping("technique/name/{desc}")
+	@GetMapping("technique/name/{desc}") 
 	public Technique getTechByName(@PathVariable String desc) {
 		return techService.getByName(desc);
 	}
