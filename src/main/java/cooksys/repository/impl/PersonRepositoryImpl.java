@@ -18,9 +18,7 @@ public class PersonRepositoryImpl implements PersonRepository {
 	
 	@Override
 	public Person get(long id) {
-		Person result = entityManager.find(Person.class, id);
-		System.out.println(result.getFirstName());
-		return result;
+		return entityManager.find(Person.class, id);
 	}
 
 }
