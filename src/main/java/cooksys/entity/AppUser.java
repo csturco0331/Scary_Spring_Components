@@ -104,4 +104,10 @@ public class AppUser {
 		this.groups = groups;
 	}
 
+	@Override
+	public String toString() {
+		return "AppUser [id=" + id + ", name=" + name + ", city=" + city + ", state=" + state + ", role=" + role
+				+ ", groups=" + groups + "]";
+	}
+
 }
